@@ -24,14 +24,24 @@ public class Program {
             conn = DB.getConnection();
 
             st = conn.prepareStatement(
+                    "DELETE FROM department "
+                    + "WHERE "
+                    + "Id = ? ");
+
+            st.setInt(1, 5);
+
+
+
+         /*
                     "UPDATE seller "
                     + "SET BaseSalary = BaseSalary + ? "
                     + "WHERE "
                     + "(DepartmentId = ?)");
 
+
             st.setDouble(1, 200.0);
             st.setInt(2,2);
-
+        */
             int rowsAffected = st.executeUpdate();
 
             System.out.println("DONE! Rows affected: " + rowsAffected);
